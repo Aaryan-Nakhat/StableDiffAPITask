@@ -1,6 +1,6 @@
 # A Dockerized API
 
-An API based on FastAPI for using the transformer-based text-to-audio model [Bark](https://github.com/suno-ai/bark).
+An API based on FastAPI for using the transformer-based text-to-audio model: [Bark](https://github.com/suno-ai/bark)
 
 The model is from [Suno](https://suno.ai)
 
@@ -13,7 +13,7 @@ To use the API, use the following POST request format:
 
 POST `/predict`
 
-BODY (JSON):
+Body (JSON):
 
 ```json
 {
