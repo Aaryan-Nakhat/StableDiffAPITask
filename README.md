@@ -1,10 +1,9 @@
 # A Dockerized API
 
-An API based on FastAPI for using neural text-to-speech synthesis. The API is designed to be used together with our
-[text-to-speech workers](https://github.com/TartuNLP/text-to-speech-worker).
+An API based on FastAPI for using the transformer-based text-to-audio model [Bark](https://github.com/suno-ai/bark).
 
-The project is developed by the [NLP research group](https://tartunlp.ai) at the [University of Tartu](https://ut.ee).
-Speech synthesis can also be tested in our [web demo](https://www.neurokone.ee/).
+The model is from [Suno](https://suno.ai)
+
 
 ## API usage
 
@@ -12,18 +11,18 @@ The API documentation will be available at the `/docs` endpoint when deployed.
 
 To use the API, use the following POST request format:
 
-POST `/v2`
+POST `/predict`
 
 BODY (JSON):
 
 ```json
 {
-    "text": "Tere.",
-    "speaker": "mari",
-    "speed": 1
+    "text_prompt": "The text prompt for which we wanna generate the audio"
 }
 ```
 
-The `speaker` parameter is required and should contain the speaker's name. The `speed` parameter is optional,
-and it is a multiplier between `0.5` and `2` compared to normal speed `1`. As a result the API will return audio
-in `.wav` format.
+To play the audio, send a GET request as:
+
+GET `/predict`
+
+The API returns the audio in `.wav` format.
